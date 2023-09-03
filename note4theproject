@@ -1,0 +1,31 @@
+The Project: Simple Bank
+Step 1. Design the database schema and generate SQL code
+    https://dbdiagram.io/home is a free source for building databases.
+    In this websit, use DBML(database markup language) to design the database, then it could be convert to Any DataBase Language(in this project, use postgres)
+    To write DBML, refer https://dbml.dbdiagram.io/home/#intro
+
+Step 2. Install and use Docker + Postgres + TablePlus to create DB schema
+    download Docker desktop(https://www.docker.com/products/docker-desktop/), which will also build docker in enviroment. The docker is a useful tool to implement micro-service, refer https://philipzheng.gitbook.io/docker_practice/ to discover further.
+
+    next, download the postgres's image on docker hub:
+        docker pull [image]:[tag]
+    then start a container:
+        docker run --name [container_name] -e [enviroment_variable] -p [host_ports:container_ports] -d [image]:[tag]
+    In our case, run:
+        docker run -it --name [container_name] -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
+        // the user and password will be used later in TablePlus to create a connect.
+    after start a container, we can run command in it:
+        docker exec -it [container_name/container_id] [command] [args]
+    In our case, run:
+        docker exec -it [container_name] psql -U root
+        ref: https://hub.docker.com/_/postgres
+        we can into interactive interface since we use -i, then we can input some psql command in terminal. (use \q can exit the interface)
+    
+    Tableplus is a GUI for sql database, we can use it to connect to databases and input sql command to edit databases.
+
+    Some common quick button:
+    -   ctrl + r: refresh
+    -   ctrl + s: save
+
+Step 3. Write and Run database migration
+    
