@@ -27,5 +27,19 @@ Step 2. Install and use Docker + Postgres + TablePlus to create DB schema
     -   ctrl + r: refresh
     -   ctrl + s: save
 
-Step 3. Write and Run database migration
+Step 3. Write and Run database migration in Golang
+    Ref: https://github.com/golang-migrate/migrate/tree/master/cmd/migrate
+    First, Install the migrate.
     
+    To use the migrate, in our case, we need to create a folder in local to create migrate document:
+    -   mkdir -P db/migration
+    then initialize migration documents:
+        migrate create -ext sql -dir db/migration -seq init_sechema
+    there will be 2 docs: one for up and one for down of migrate.
+    copy the sql created by DBML and paste it into the up migration. then edit the down migrate:
+        DROP TABLE IF EXISTS entries;
+        DROP TABLE IF EXISTS transfers;
+        DROP TABLE IF EXISTS account;
+    
+    then create a Makefile to simplified command for migrate
+
