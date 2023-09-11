@@ -43,3 +43,4 @@ Step 3. Write and Run database migration in Golang
     
     then create a Makefile to simplified command for migrate
 
+Week 3
