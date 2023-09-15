@@ -17,7 +17,19 @@ migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
 migratedown1:
-	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
+
+awsmigrateup:
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up
+
+awsmigrateup1:
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up 1
+
+awsmigratedown:
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down
+
+awsmigratedown1:
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
 
 sqlc:
 	sqlc generate
@@ -31,4 +43,4 @@ server:
 mock: 
 	mockgen -source=./db/sqlc/store.go -destination=./db/mock/store.go -package=mockdb
 
-.PHONY: postgres createdb dropdb migrateup migrateup1 migratedown migratedown1 sqlc test server mock
+.PHONY: postgres createdb dropdb migrateup migrateup1 migratedown migratedown1 awsmigratedown awsmigratedown1 awsmigrateup awsmigrateup1 sqlc test server mock
