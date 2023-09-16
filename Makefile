@@ -8,28 +8,40 @@ dropdb:
 	docker exec -it postgres12 dropdb simple_bank
 
 migrateup:
-	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up
 
 migrateup1:
-	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up 1
 
 migratedown:
-	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down
 
 migratedown1:
 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
 
-awsmigrateup:
-	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up
+# migrateup:
+# 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
-awsmigrateup1:
-	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up 1
+# migrateup1:
+# 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
 
-awsmigratedown:
-	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down
+# migratedown:
+# 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
-awsmigratedown1:
-	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
+# migratedown1:
+# 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
+
+# awsmigrateup:
+# 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up
+
+# awsmigrateup1:
+# 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up 1
+
+# awsmigratedown:
+# 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down
+
+# awsmigratedown1:
+# 	migrate -path db/migration -database "postgresql://root:L_515405@simple-bank.c27nywywxxl2.ap-northeast-3.rds.amazonaws.com:5432/simple_bank" -verbose down 1
 
 sqlc:
 	sqlc generate
