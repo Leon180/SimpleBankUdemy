@@ -28,7 +28,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2 # More information on this action can be found below in the 'AWS Credentials' section
       with:
         role-to-assume: arn:aws:iam::420219462170:role/github-simplebank-ci
-        aws-region: ap-northeast-3
+        aws-region: ap-east-3
 
     - name: Login to Amazon ECR
       id: login-ecr
