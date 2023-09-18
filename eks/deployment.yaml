@@ -17,6 +17,13 @@ spec:
       containers:
       - name: simple-bank-api
         image: 420219462170.dkr.ecr.ap-east-1.amazonaws.com/simplebank:latest
+<<<<<<< HEAD
+<<<<<<< HEAD
         imagePullPolicy: Always
+=======
+>>>>>>> 27c3072 (update github-ci to deploy to amazon EKS)
+=======
+        imagePullPolicy: Always
+>>>>>>> 65cd357 (update github-ci to deploy to amazon EKS)
         ports:
         - containerPort: 8080
