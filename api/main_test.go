@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+
 	"github.com/stretchr/testify/require"
 	db "github.com/techschool/simplebank/db/sqlc"
 	"github.com/techschool/simplebank/util"
